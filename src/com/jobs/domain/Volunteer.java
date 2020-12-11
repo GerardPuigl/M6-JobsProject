@@ -11,8 +11,8 @@ public class Volunteer extends AbsStaffMember {
 
 	
 	@Override
-	public void pay() {
-		//TODO
+	public double pay() {
+		return 0;
 		
 	}
 

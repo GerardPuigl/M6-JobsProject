@@ -15,14 +15,14 @@ public class Main {
 		controller.createEmployee("Laura Employee", "Dirección molona 3", "625266666", 45.0);
 		controller.createVolunteer("Juan Volunteer", "Dirección molona 4", "614266666");
 		controller.createManagerEmployee("Pedro Employee", "Dirección molona 2", "665226666", 80.0);
-		
-		
-		controller.payAllEmployeers();
-		
+				
 		String allEmployees=controller.getAllEmployees();
-		
-		System.out.println("EMPLOYEES: " + allEmployees + " \n");
-		
+		double allPays = controller.payAllEmployeers();
+
+		System.out.println("EMPLOYEES: " + allEmployees + "\n");
+
+		controller.printPayListEmployees();
+		System.out.println("\nTOTAL TO PAY: " + allPays + " €" + "\n");
 	}
 
 }

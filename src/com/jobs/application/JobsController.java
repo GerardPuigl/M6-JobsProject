@@ -27,23 +27,35 @@ public class JobsController {
 	}
 
 	public void createManagerEmployee(String name, String address, String phone, double salaryPerMonth) throws Exception{
-		Employee boss = new Employee(name, address, phone,  salaryPerMonth, PaymentFactory.createPaymentRateEmployee());
-		repository.addMember(boss);
+		Employee Manager = new Employee(name, address, phone,  salaryPerMonth, PaymentFactory.createPaymentRateManager());
+		repository.addMember(Manager);
 		
 	}
 
-
-	public void payAllEmployeers() {
-		// TODO Auto-generated method stub
+	public double payAllEmployeers() {
+		double totalPay=0;
+		
+		for (AbsStaffMember m:repository.getAllMembers()) {
+			totalPay=totalPay+m.pay();
+		}
+		return totalPay;
 	
 	}
 
+	public void printPayListEmployees() {
+				
+		for (AbsStaffMember m:repository.getAllMembers()) {
+			System.out.println(m.getName() + " pay " + m.pay() +" €");
+		}
+	
+	}
+		
 	public String getAllEmployees() {
 		
 		ArrayList<String> nameEmployees=new ArrayList();
 		
-		for (AbsStaffMember name:repository.getAllMembers()) {
-			nameEmployees.add(name.getName());
+		for (AbsStaffMember m:repository.getAllMembers()) {
+			nameEmployees.add(m.getName());
 		}
 		
 		return nameEmployees.toString();
