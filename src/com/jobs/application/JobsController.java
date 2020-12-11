@@ -1,11 +1,16 @@
 package com.jobs.application;
 
+import java.util.ArrayList;
+import java.util.Map;
+
+import com.jobs.domain.AbsStaffMember;
 import com.jobs.domain.Employee;
+import com.jobs.domain.Volunteer;
 import com.jobs.persistence.EmployeeRepository;
 
 public class JobsController {
 
-	private EmployeeRepository repository;
+	private EmployeeRepository repository = new EmployeeRepository();
 	
 	public JobsController(){
 		
@@ -17,12 +22,13 @@ public class JobsController {
 	}
 	
 	public void createEmployee(String name, String address, String phone, double salaryPerMonth) throws Exception{		
-		Employee boss = new Employee(name, address, phone,  salaryPerMonth, PaymentFactory.createPaymentRateEmployee());
-		repository.addMember(boss);
+		Employee Employee = new Employee(name, address, phone,  salaryPerMonth, PaymentFactory.createPaymentRateEmployee());
+		repository.addMember(Employee);
 	}
 
 	public void createManagerEmployee(String name, String address, String phone, double salaryPerMonth) throws Exception{
-		// TODO Auto-generated method stub
+		Employee boss = new Employee(name, address, phone,  salaryPerMonth, PaymentFactory.createPaymentRateEmployee());
+		repository.addMember(boss);
 		
 	}
 
@@ -33,12 +39,19 @@ public class JobsController {
 	}
 
 	public String getAllEmployees() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		ArrayList<String> nameEmployees=new ArrayList();
+		
+		for (AbsStaffMember name:repository.getAllMembers()) {
+			nameEmployees.add(name.getName());
+		}
+		
+		return nameEmployees.toString();
 	}
 
-	public void createVolunteer(String string, String string2, String string3) {
-		// TODO Auto-generated method stub
+	public void createVolunteer(String name, String address, String phone) throws Exception{
+		Volunteer vol = new Volunteer(name, address, phone);
+		repository.addMember(vol);
 		
 	}
 	
