@@ -32,41 +32,34 @@ public class JobsController {
 		
 	}
 
-	public double payAllEmployeers() {
+	public String payAllEmployees() {
+		
+		String payAllEmployees="";
 		double totalPay=0;
 		
 		for (AbsStaffMember m:repository.getAllMembers()) {
+			payAllEmployees = payAllEmployees + m.pay() + " € paid to " + m.getName() + "\n";
 			totalPay=totalPay+m.pay();
 		}
-		return totalPay;
-	
-	}
-
-	public void printPayListEmployees() {
-				
-		for (AbsStaffMember m:repository.getAllMembers()) {
-			System.out.println(m.getName() + " pay " + m.pay() +" €");
-		}
-	
+			payAllEmployees = payAllEmployees + "\nTotal paid: " + totalPay + " €" + "\n";
+		return payAllEmployees;
 	}
 		
 	public String getAllEmployees() {
 		
-		ArrayList<String> nameEmployees=new ArrayList();
+		String infoAllEmployees="";
 		
 		for (AbsStaffMember m:repository.getAllMembers()) {
-			nameEmployees.add(m.getName());
+			infoAllEmployees=infoAllEmployees + m.getInfo() + "\n";
 		}
 		
-		return nameEmployees.toString();
+		return infoAllEmployees;
 	}
 
 	public void createVolunteer(String name, String address, String phone) throws Exception{
 		Volunteer vol = new Volunteer(name, address, phone);
 		repository.addMember(vol);
 		
-	}
-	
-	
+	}	
 	
 }

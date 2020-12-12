@@ -27,8 +27,12 @@ public abstract class AbsStaffMember {
 
 	public abstract double pay();
 	
-	public String getName() {		
-	return name;
+	public String getName() {
+		return name;
+	}
+	
+	public String getInfo() {		
+	return "Name :" + name + " Address: " + address + " Phone: " + phone;
 	}
 	
 }

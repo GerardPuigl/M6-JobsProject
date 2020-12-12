@@ -17,12 +17,10 @@ public class Main {
 		controller.createManagerEmployee("Pedro Employee", "Dirección molona 2", "665226666", 80.0);
 				
 		String allEmployees=controller.getAllEmployees();
-		double allPays = controller.payAllEmployeers();
+		String payAllEmployees = controller.payAllEmployees();
 
-		System.out.println("EMPLOYEES: " + allEmployees + "\n");
-
-		controller.printPayListEmployees();
-		System.out.println("\nTOTAL TO PAY: " + allPays + " €" + "\n");
+		System.out.println("EMPLOYEES: \n" + allEmployees + " \n");
+		System.out.println("PAYS: \n" + payAllEmployees);
 	}
 
 }
