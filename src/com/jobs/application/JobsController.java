@@ -10,6 +10,7 @@ import com.jobs.persistence.EmployeeRepository;
 
 public class JobsController {
 
+	//Instància EmployeeRepository
 	private EmployeeRepository repository = new EmployeeRepository();
 	
 	public JobsController(){
@@ -22,16 +23,18 @@ public class JobsController {
 	}
 	
 	public void createEmployee(String name, String address, String phone, double salaryPerMonth) throws Exception{		
-		Employee Employee = new Employee(name, address, phone,  salaryPerMonth, PaymentFactory.createPaymentRateEmployee());
-		repository.addMember(Employee);
+		Employee employee = new Employee(name, address, phone,  salaryPerMonth, PaymentFactory.createPaymentRateEmployee());
+		repository.addMember(employee);
 	}
 
+	//Creació Employee Manager
 	public void createManagerEmployee(String name, String address, String phone, double salaryPerMonth) throws Exception{
-		Employee Manager = new Employee(name, address, phone,  salaryPerMonth, PaymentFactory.createPaymentRateManager());
-		repository.addMember(Manager);
+		Employee manager = new Employee(name, address, phone,  salaryPerMonth, PaymentFactory.createPaymentRateManager());
+		repository.addMember(manager);
 		
 	}
-
+	
+	//Llistat pagament d'empleats
 	public String payAllEmployees() {
 		
 		String payAllEmployees="";
@@ -44,7 +47,8 @@ public class JobsController {
 			payAllEmployees = payAllEmployees + "\nTotal paid: " + totalPay + " €" + "\n";
 		return payAllEmployees;
 	}
-		
+	
+	//Llistat de l'informació de tots emplats.
 	public String getAllEmployees() {
 		
 		String infoAllEmployees="";
@@ -56,6 +60,7 @@ public class JobsController {
 		return infoAllEmployees;
 	}
 
+	//Creació Volunteer
 	public void createVolunteer(String name, String address, String phone) throws Exception{
 		Volunteer vol = new Volunteer(name, address, phone);
 		repository.addMember(vol);
