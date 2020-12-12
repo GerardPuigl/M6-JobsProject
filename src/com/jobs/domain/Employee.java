@@ -15,10 +15,15 @@ public class Employee extends AbsStaffMember {
 		this.paymentRate=paymentRate;
 	}
 
-	
+	//càlculo bruto mensual sobreescrit la classe PaymentFactory
 	@Override
-	public double pay() {
-		return totalPaid=paymentRate.pay(salaryPerMonth);
+	public double payGross() {
+		return totalPaid=paymentRate.payGross(salaryPerMonth);
 	}
-	
+
+	//càlculo neto mensual sobreescrit la classe PaymentFactory
+	@Override
+	public double payNet() {
+		return totalPaid=paymentRate.payNet(salaryPerMonth);
+	}
 }

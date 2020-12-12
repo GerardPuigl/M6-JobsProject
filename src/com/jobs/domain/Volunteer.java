@@ -5,15 +5,17 @@ public class Volunteer extends AbsStaffMember {
 
 	public Volunteer(String name, String address, String phone) throws Exception {
 		super(name, address, phone);
-		
-		//TODO
 	}
 
 	
 	@Override
-	public double pay() {
-		return 0;
-		
+	public double payGross() {
+		return 300;
+	}
+	
+	@Override
+	public double payNet() {
+		return 300;			
 	}
 
 }

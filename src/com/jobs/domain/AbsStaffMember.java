@@ -25,7 +25,8 @@ public abstract class AbsStaffMember {
 		COUNTER_MEMBERS++;
 	}
 
-	public abstract double pay();
+	public abstract double payGross();
+	public abstract double payNet();
 	
 	//mètode retorn nom
 	public String getName() {
