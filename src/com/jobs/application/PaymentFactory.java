@@ -14,6 +14,7 @@ public class PaymentFactory {
 		};
 	}
 	
+	//Reducció 15% als empleats
 	public static IPaymentRate createPaymentRateEmployee(){
 		return new IPaymentRate() {
 			@Override
@@ -23,6 +24,7 @@ public class PaymentFactory {
 		};
 	}
 	
+	//Augment 10% als managers
 	public static IPaymentRate createPaymentRateManager(){
 		return new IPaymentRate() {
 			@Override
