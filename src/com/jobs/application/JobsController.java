@@ -10,6 +10,7 @@ import com.jobs.persistence.EmployeeRepository;
 
 public class JobsController {
 
+	//Instància EmployeeRepository
 	private EmployeeRepository repository = new EmployeeRepository();
 	
 	public JobsController(){
@@ -28,6 +29,7 @@ public class JobsController {
 			
 	}
 	
+<<<<<<< HEAD
 	//Afegit subclase Senior i forquilla de sou.
 	public void createEmployeeSenior(String name, String address, String phone, double salaryPerMonth) throws Exception{		
 		Employee employee = new Employee(name, address, phone,  salaryPerMonth, PaymentFactory.createPaymentRateEmployeeJunior());
@@ -48,8 +50,14 @@ public class JobsController {
 		} catch (Exception e) {
 			System.out.println("Error al introducir el salario de " + name + ".\nEl salairo debe estrar entre 1800 y 2500 €\n");
 		}
+=======
+	public void createEmployee(String name, String address, String phone, double salaryPerMonth) throws Exception{		
+		Employee employee = new Employee(name, address, phone,  salaryPerMonth, PaymentFactory.createPaymentRateEmployee());
+		repository.addMember(employee);
+>>>>>>> refs/heads/Fase_1
 	}
 
+<<<<<<< HEAD
 	//Afegit subclase Junior i forquilla de sou.
 	public void createEmployeeJunior(String name, String address, String phone, double salaryPerMonth) throws Exception{		
 		Employee employee = new Employee(name, address, phone,  salaryPerMonth, PaymentFactory.createPaymentRateEmployeeJunior());
@@ -62,17 +70,25 @@ public class JobsController {
 	}
 	
 	//Afegit subclase Manager i forquilla de sou.
+=======
+	//Creació Employee Manager
+>>>>>>> refs/heads/Fase_1
 	public void createManagerEmployee(String name, String address, String phone, double salaryPerMonth) throws Exception{
 		Employee manager = new Employee(name, address, phone,  salaryPerMonth, PaymentFactory.createPaymentRateManager());
+<<<<<<< HEAD
 		try {
 			if(salaryPerMonth>5000 || salaryPerMonth<3000) throw new Exception();
 			repository.addMember(manager);
 		} catch (Exception e) {
 			System.out.println("Error al introducir el salario de " + name + ".\nEl salairo debe estrar entre 3000 y 5000 €\n");
 		}
+=======
+		repository.addMember(manager);
+>>>>>>> refs/heads/Fase_1
 		
 	}
-
+	
+	//Llistat pagament d'empleats
 	public String payAllEmployees() {
 		
 		String payAllEmployees="";
@@ -85,7 +101,8 @@ public class JobsController {
 			payAllEmployees = payAllEmployees + "\nTotal paid: " + totalPay + " €" + "\n";
 		return payAllEmployees;
 	}
-		
+	
+	//Llistat de l'informació de tots emplats.
 	public String getAllEmployees() {
 		
 		String infoAllEmployees="";
@@ -96,6 +113,7 @@ public class JobsController {
 		return infoAllEmployees;
 	}
 
+	//Creació Volunteer
 	public void createVolunteer(String name, String address, String phone) throws Exception{
 		Volunteer vol = new Volunteer(name, address, phone);
 		repository.addMember(vol);

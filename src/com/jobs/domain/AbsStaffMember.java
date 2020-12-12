@@ -27,10 +27,12 @@ public abstract class AbsStaffMember {
 
 	public abstract double pay();
 	
+	//mètode retorn nom
 	public String getName() {
 		return name;
 	}
 	
+	//mètode retorn informació
 	public String getInfo() {		
 	return "Name :" + name + " Address: " + address + " Phone: " + phone;
 	}

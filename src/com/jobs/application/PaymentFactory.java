@@ -16,6 +16,7 @@ public class PaymentFactory {
 		};
 	}
 	
+<<<<<<< HEAD
 	public static IPaymentRate createPaymentRateEmployeeSenior(){
 		return new IPaymentRate() {
 			@Override
@@ -35,6 +36,10 @@ public class PaymentFactory {
 	}
 	
 	public static IPaymentRate createPaymentRateEmployeeJunior(){
+=======
+	//Reducció 15% als empleats
+	public static IPaymentRate createPaymentRateEmployee(){
+>>>>>>> refs/heads/Fase_1
 		return new IPaymentRate() {
 			@Override
 			public double pay(double salaryPerMonth) {
@@ -43,6 +48,7 @@ public class PaymentFactory {
 		};
 	}
 	
+	//Augment 10% als managers
 	public static IPaymentRate createPaymentRateManager(){
 		return new IPaymentRate() {
 			@Override
