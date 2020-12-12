@@ -17,7 +17,7 @@ public class JobsController {
 		
 	}
 	
-	//Afegit sou mínim Boss.
+	//Creació Empleat Boss i comprovació del sou mínim.
 	public void createBossEmployee(String name, String address, String phone, double salaryPerMonth) throws Exception{		
 		Employee boss = new Employee(name, address, phone,  salaryPerMonth, PaymentFactory.createPaymentRateBoss());
 		try {
@@ -28,9 +28,8 @@ public class JobsController {
 		}
 			
 	}
-	
-<<<<<<< HEAD
-	//Afegit subclase Senior i forquilla de sou.
+
+	//Creaciço Empleat Senior i comprovació forquilla del sou.
 	public void createEmployeeSenior(String name, String address, String phone, double salaryPerMonth) throws Exception{		
 		Employee employee = new Employee(name, address, phone,  salaryPerMonth, PaymentFactory.createPaymentRateEmployeeJunior());
 		try {
@@ -41,7 +40,7 @@ public class JobsController {
 		}
 	}
 	
-	//Afegit subclase Mid i forquilla de sou.
+	//Creaciço Empleat Mid i comprovació forquilla del sou.
 	public void createEmployeeMid(String name, String address, String phone, double salaryPerMonth) throws Exception{		
 		Employee employee = new Employee(name, address, phone,  salaryPerMonth, PaymentFactory.createPaymentRateEmployeeJunior());
 		try {
@@ -50,15 +49,9 @@ public class JobsController {
 		} catch (Exception e) {
 			System.out.println("Error al introducir el salario de " + name + ".\nEl salairo debe estrar entre 1800 y 2500 €\n");
 		}
-=======
-	public void createEmployee(String name, String address, String phone, double salaryPerMonth) throws Exception{		
-		Employee employee = new Employee(name, address, phone,  salaryPerMonth, PaymentFactory.createPaymentRateEmployee());
-		repository.addMember(employee);
->>>>>>> refs/heads/Fase_1
 	}
 
-<<<<<<< HEAD
-	//Afegit subclase Junior i forquilla de sou.
+	//Creaciço Empleat Junior i comprovació forquilla del sou.
 	public void createEmployeeJunior(String name, String address, String phone, double salaryPerMonth) throws Exception{		
 		Employee employee = new Employee(name, address, phone,  salaryPerMonth, PaymentFactory.createPaymentRateEmployeeJunior());
 		try {
@@ -69,26 +62,18 @@ public class JobsController {
 		}
 	}
 	
-	//Afegit subclase Manager i forquilla de sou.
-=======
-	//Creació Employee Manager
->>>>>>> refs/heads/Fase_1
+	//Creaciço Empleat Manager i comprovació forquilla del sou.
 	public void createManagerEmployee(String name, String address, String phone, double salaryPerMonth) throws Exception{
 		Employee manager = new Employee(name, address, phone,  salaryPerMonth, PaymentFactory.createPaymentRateManager());
-<<<<<<< HEAD
 		try {
 			if(salaryPerMonth>5000 || salaryPerMonth<3000) throw new Exception();
 			repository.addMember(manager);
 		} catch (Exception e) {
 			System.out.println("Error al introducir el salario de " + name + ".\nEl salairo debe estrar entre 3000 y 5000 €\n");
 		}
-=======
-		repository.addMember(manager);
->>>>>>> refs/heads/Fase_1
-		
 	}
 	
-	//Llistat pagament d'empleats
+	//Llistat pagament de tots els empleats
 	public String payAllEmployees() {
 		
 		String payAllEmployees="";
