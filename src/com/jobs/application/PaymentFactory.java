@@ -1,5 +1,7 @@
 package com.jobs.application;
 
+import javax.swing.DefaultRowSorter;
+
 import com.jobs.domain.IPaymentRate;
 
 public class PaymentFactory {
@@ -14,7 +16,25 @@ public class PaymentFactory {
 		};
 	}
 	
-	public static IPaymentRate createPaymentRateEmployee(){
+	public static IPaymentRate createPaymentRateEmployeeSenior(){
+		return new IPaymentRate() {
+			@Override
+			public double pay(double salaryPerMonth) {
+				return salaryPerMonth*0.95;
+			}
+		};
+	}
+	
+	public static IPaymentRate createPaymentRateEmployeeMid(){
+		return new IPaymentRate() {
+			@Override
+			public double pay(double salaryPerMonth) {
+				return salaryPerMonth*0.90;
+			}
+		};
+	}
+	
+	public static IPaymentRate createPaymentRateEmployeeJunior(){
 		return new IPaymentRate() {
 			@Override
 			public double pay(double salaryPerMonth) {

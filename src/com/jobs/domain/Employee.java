@@ -9,6 +9,7 @@ public class Employee extends AbsStaffMember {
 		super(name, address, phone);		
 		if(salaryPerMonth<0) throw new Exception();
 		if(paymentRate==null) throw new Exception();
+
 				
 		this.salaryPerMonth=salaryPerMonth;
 		this.paymentRate=paymentRate;
@@ -19,5 +20,5 @@ public class Employee extends AbsStaffMember {
 	public double pay() {
 		return totalPaid=paymentRate.pay(salaryPerMonth);
 	}
-
+	
 }

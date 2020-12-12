@@ -16,19 +16,60 @@ public class JobsController {
 		
 	}
 	
+	//Afegit sou mínim Boss.
 	public void createBossEmployee(String name, String address, String phone, double salaryPerMonth) throws Exception{		
 		Employee boss = new Employee(name, address, phone,  salaryPerMonth, PaymentFactory.createPaymentRateBoss());
-		repository.addMember(boss);
+		try {
+			if(salaryPerMonth<8000) throw new Exception();
+			repository.addMember(boss);
+		} catch (Exception e) {
+			System.out.println("Error al introducir el salario de " + name + ".\nEl salairo debe ser superior a 8000 €\n");
+		}
+			
 	}
 	
-	public void createEmployee(String name, String address, String phone, double salaryPerMonth) throws Exception{		
-		Employee Employee = new Employee(name, address, phone,  salaryPerMonth, PaymentFactory.createPaymentRateEmployee());
-		repository.addMember(Employee);
+	//Afegit subclase Senior i forquilla de sou.
+	public void createEmployeeSenior(String name, String address, String phone, double salaryPerMonth) throws Exception{		
+		Employee employee = new Employee(name, address, phone,  salaryPerMonth, PaymentFactory.createPaymentRateEmployeeJunior());
+		try {
+			if(salaryPerMonth>4000 || salaryPerMonth<2700) throw new Exception();
+			repository.addMember(employee);
+		} catch (Exception e) {
+			System.out.println("Error al introducir el salario de " + name + ".\nEl salairo debe estrar entre 2700 y 4000 €\n");
+		}
+	}
+	
+	//Afegit subclase Mid i forquilla de sou.
+	public void createEmployeeMid(String name, String address, String phone, double salaryPerMonth) throws Exception{		
+		Employee employee = new Employee(name, address, phone,  salaryPerMonth, PaymentFactory.createPaymentRateEmployeeJunior());
+		try {
+			if(salaryPerMonth>2500 || salaryPerMonth<1800) throw new Exception();
+			repository.addMember(employee);
+		} catch (Exception e) {
+			System.out.println("Error al introducir el salario de " + name + ".\nEl salairo debe estrar entre 1800 y 2500 €\n");
+		}
 	}
 
+	//Afegit subclase Junior i forquilla de sou.
+	public void createEmployeeJunior(String name, String address, String phone, double salaryPerMonth) throws Exception{		
+		Employee employee = new Employee(name, address, phone,  salaryPerMonth, PaymentFactory.createPaymentRateEmployeeJunior());
+		try {
+			if(salaryPerMonth>1600 || salaryPerMonth<900) throw new Exception();
+			repository.addMember(employee);
+		} catch (Exception e) {
+			System.out.println("Error al introducir el salario de " + name + ".\nEl salairo debe estrar entre 900 y 1600 €\n");
+		}
+	}
+	
+	//Afegit subclase Manager i forquilla de sou.
 	public void createManagerEmployee(String name, String address, String phone, double salaryPerMonth) throws Exception{
-		Employee Manager = new Employee(name, address, phone,  salaryPerMonth, PaymentFactory.createPaymentRateManager());
-		repository.addMember(Manager);
+		Employee manager = new Employee(name, address, phone,  salaryPerMonth, PaymentFactory.createPaymentRateManager());
+		try {
+			if(salaryPerMonth>5000 || salaryPerMonth<3000) throw new Exception();
+			repository.addMember(manager);
+		} catch (Exception e) {
+			System.out.println("Error al introducir el salario de " + name + ".\nEl salairo debe estrar entre 3000 y 5000 €\n");
+		}
 		
 	}
 
@@ -51,8 +92,7 @@ public class JobsController {
 		
 		for (AbsStaffMember m:repository.getAllMembers()) {
 			infoAllEmployees=infoAllEmployees + m.getInfo() + "\n";
-		}
-		
+		}		
 		return infoAllEmployees;
 	}
 
