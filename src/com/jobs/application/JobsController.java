@@ -18,7 +18,7 @@ public class JobsController {
 		
 	}
 	
-	//Creació Empleats i forquilles de sou
+	//creació Empleats i forquilles de sou
 	
 	public void createBossEmployee(String name, String address, String phone, double salaryPerMonth) throws Exception{		
 		Employee boss = new Employee(name, address, phone,  salaryPerMonth, PaymentFactory.createPaymentRateBoss());
@@ -65,11 +65,15 @@ public class JobsController {
 			System.out.println("Error al introducir el salario de " + name + ".\nEl salairo debe estrar entre 900 y 1600 €\n");
 		}
 	}
+	
+	//creació voluntaris
 	public void createVolunteer(String name, String address, String phone) throws Exception{
 		Volunteer vol = new Volunteer(name, address, phone);
 		repositoryVolunteers.addMember(vol);
 		
-	}	
+	}
+	
+	//llistat de voluntaris i empleats
 	public String getAllEmployees() {
 		
 		String infoAllMembers="";
@@ -98,7 +102,7 @@ public class JobsController {
 		return payAllEmployees;
 	}
 
-	//Llistat pagament ajuda governamental Voluntaris
+	//llistat pagament ajuda governamental Voluntaris
 	public String payAllVolunteers() {
 		
 		String payAllVolunteers="";
@@ -110,7 +114,7 @@ public class JobsController {
 		return payAllVolunteers;
 	}
 	
-	//total a pagar per l'empresa
+	//total a pagar per l'empresa (no inclou ajudes del govern)
 	public String totalPay() {
 		
 		String stringTotalPay="";
