@@ -35,6 +35,7 @@ public class Main {
 		System.out.println("SALARIES: \n" + payAllEmployees);
 		System.out.println(totalPay);
 		System.out.println(payAllVolunteers);
+
 	}
 
 }

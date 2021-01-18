@@ -97,7 +97,7 @@ public class JobsController {
 															+ "\n Net month Salary " + m.payNet() + " €"
 															+ "\n Gross anual Salary " + m.payGross()*12 + " €"
 															+ "\n Net anual Salary " + m.payNet()*12 + " €"
-															+ "\n Anual bonus of " + bonus + "%: " + m.payGross()*12*(bonus/100) +" €"+ "\n" ;
+															+ "\n Anual bonus of " + bonus + "%: " + m.payGross()*12*(bonus/100) +" €"+ "\n\n" ;
 		}
 		return payAllEmployees;
 	}
