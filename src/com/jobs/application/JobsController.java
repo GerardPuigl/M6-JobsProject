@@ -7,11 +7,12 @@ import com.jobs.domain.AbsStaffMember;
 import com.jobs.domain.Employee;
 import com.jobs.domain.Volunteer;
 import com.jobs.persistence.EmployeeRepository;
+import com.jobs.persistence.VolunteerRepository;
 
 public class JobsController {
 
 	private EmployeeRepository repositoryEmployees = new EmployeeRepository();
-	private EmployeeRepository repositoryVolunteers = new EmployeeRepository();
+	private VolunteerRepository repositoryVolunteers = new VolunteerRepository();
 	private double bonus =0;
 	
 	public JobsController(){
